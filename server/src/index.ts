@@ -4,11 +4,13 @@ import "express-async-errors";
 import helmet from "helmet";
 import responseTime from "response-time";
 import { StatusCodes } from "http-status-codes";
+import cors from "cors";
 
 const app: Express = express();
 const port = process.env.PORT ?? 8085;
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(responseTime());
